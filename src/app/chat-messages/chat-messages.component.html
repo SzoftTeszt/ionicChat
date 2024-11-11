@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Chat
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Chat</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-textarea [(ngModel)]="newMessage" label="Messages"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-button (click)="addMessage()" shape="round">Send</ion-button>
+    </ion-item>
+
+    <ion-item>
+      
+    </ion-item>
+  </ion-list>
+  <div class="container">
+
+    <div *ngFor="let uzi of messages" class="row">
+      <div class="col">
+        <p class="my-0">{{uzi.username}}</p>
+        <p class="my-0 mb-4">{{uzi.text}}</p>
+      </div>
+      <!-- <div class="col">{{uzi.text}}</div> -->
+    </div>
+
+  </div>
+  <!-- {{messages|json}} -->
+</ion-content>
