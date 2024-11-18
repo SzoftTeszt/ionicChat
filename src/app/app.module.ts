@@ -13,9 +13,11 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { SendComponent } from './send/send.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
-  declarations: [AppComponent, ChatMessagesComponent],
+  declarations: [AppComponent, ChatMessagesComponent, SendComponent, MessagesComponent],
   imports: [FormsModule, 
     BrowserModule, 
     IonicModule.forRoot(), 

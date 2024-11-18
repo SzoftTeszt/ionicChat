@@ -13,30 +13,9 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list>
-
-    <ion-item>
-      <ion-textarea [(ngModel)]="newMessage" label="Messages"></ion-textarea>
-    </ion-item>
-
-    <ion-item>
-      <ion-button (click)="addMessage()" shape="round">Send</ion-button>
-    </ion-item>
-
-    <ion-item>
-      
-    </ion-item>
-  </ion-list>
-  <div class="container">
-
-    <div *ngFor="let uzi of messages" class="row">
-      <div class="col">
-        <p class="my-0">{{uzi.username}}</p>
-        <p class="my-0 mb-4">{{uzi.text}}</p>
-      </div>
-      <!-- <div class="col">{{uzi.text}}</div> -->
-    </div>
-
-  </div>
+  <app-messages [messages]="messages"></app-messages>
+  <app-send (create)="addMessage($event)"></app-send>
+  
+  
   <!-- {{messages|json}} -->
 </ion-content>

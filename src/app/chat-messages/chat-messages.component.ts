@@ -7,7 +7,7 @@ import { BaseService } from '../base.service';
   styleUrls: ['./chat-messages.component.scss'],
 })
 export class ChatMessagesComponent  implements OnInit ,OnDestroy {
-  newMessage=""
+  
   messages:any
   idozito:any
 
@@ -46,10 +46,10 @@ export class ChatMessagesComponent  implements OnInit ,OnDestroy {
   //   )
   // }
 
-  addMessage(){
-    this.base.firePostMessage(this.newMessage)
+  addMessage(newMessage:string){
+    this.base.firePostMessage(newMessage)
     // this.base.postMessage(this.newMessage).subscribe()
-    
+
       // ()=> this.getMessages()
     // )
   }
