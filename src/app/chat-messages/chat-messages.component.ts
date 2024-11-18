@@ -14,20 +14,23 @@ export class ChatMessagesComponent  implements OnInit ,OnDestroy {
   constructor(private base:BaseService) { }
 
   ngOnInit() {
-    this.idozito=setInterval(
-      ()=>this.base.getMessages().forEach(
-        (res:any) => {
-          this.messages=[]
-          for (const key in res) {
-            this.messages.push(res[key])
-            // console.log(res[key]);              
-            }            
-          }     
-      )
-      ,1000
+    // this.idozito=setInterval(
+    //   ()=>this.base.getMessages().forEach(
+    //     (res:any) => {
+    //       console.log(res)
+    //       this.messages=[]
+    //       for (const key in res) {
+    //         this.messages.push(res[key])
+    //         // console.log(res[key]);              
+    //         }            
+    //       }     
+    //   )
+    //   ,1000
+    // )
+
+    this.base.fireGetMessages().valueChanges().subscribe(
+      (res)=> this.messages=res
     )
-
-
 
     // this.getMessages()
   }
@@ -44,7 +47,9 @@ export class ChatMessagesComponent  implements OnInit ,OnDestroy {
   // }
 
   addMessage(){
-    this.base.postMessage(this.newMessage).subscribe()
+    this.base.firePostMessage(this.newMessage)
+    // this.base.postMessage(this.newMessage).subscribe()
+    
       // ()=> this.getMessages()
     // )
   }

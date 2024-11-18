@@ -9,11 +9,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChatMessagesComponent } from './chat-messages/chat-messages.component';
 import { provideHttpClient } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { FormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent, ChatMessagesComponent],
-  imports: [FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, NgbModule],
+  imports: [FormsModule, 
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    NgbModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+  ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideHttpClient()
